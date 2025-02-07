@@ -13,6 +13,7 @@
     ".eslintrc.json": true,
     "eslint.config.mjs": true,
     ".eslintignore": true,
-    ".npmrc": true
+    ".npmrc": true,
+    "vite.config.ts": true
   }
 }
