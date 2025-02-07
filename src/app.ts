@@ -7,6 +7,6 @@ const prisma = new PrismaClient();
 prisma.user.create({
   data: {
     name: "John",
-    email: "john@doe",
+    email: "john@doe.com",
   },
 });
