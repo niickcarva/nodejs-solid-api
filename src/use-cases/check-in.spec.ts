@@ -83,4 +83,25 @@ describe("Check-in Use Case", () => {
 
     expect(checkIn2.id).toEqual(expect.any(String));
   });
+
+  it("should not be able to check in on distant gym", async () => {
+    gymsRepository.items.push({
+      id: "gym-02",
+      title: "JavaScript Gym 2",
+      description: "",
+      phone: "",
+      // Latitude and Longitude of Neo Quimica Arena
+      latitude: new Decimal(-23.5453085),
+      longitude: new Decimal(-46.4768041),
+    });
+
+    await expect(() =>
+      sut.execute({
+        userId: "user-01",
+        gymId: "gym-02",
+        userLatitude: -23.5410242,
+        userLongitude: -46.4713436,
+      })
+    ).rejects.toBeInstanceOf(Error);
+  });
 });
